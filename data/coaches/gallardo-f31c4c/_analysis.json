@@ -1,0 +1,161 @@
+{
+  "_sig": "b3854084b8#nt=None",
+  "ready": true,
+  "coach": {
+    "id": "gallardo-f31c4c",
+    "name": "Gallardo",
+    "team": "",
+    "photo_ext": null,
+    "created_at": "2026-06-01T20:52:08.617770+00:00"
+  },
+  "n_conferences": 1,
+  "n_sentences": 17,
+  "n_topics": 3,
+  "topics": [
+    {
+      "id": 0,
+      "label": "equipo · año · partido",
+      "words": [
+        "equipo",
+        "año",
+        "partido",
+        "seguir",
+        "rival",
+        "pasó",
+        "partidos",
+        "difícil",
+        "energía",
+        "empieza"
+      ],
+      "size": 6,
+      "share": 0.3529,
+      "sentiment": {
+        "POS": 0.5,
+        "NEU": 0.5
+      }
+    },
+    {
+      "id": 1,
+      "label": "marcelo · noches · lugar",
+      "words": [
+        "marcelo",
+        "noches",
+        "lugar",
+        "noches marcelo",
+        "lento",
+        "marcelo noches",
+        "vos",
+        "tiempo",
+        "nombres",
+        "estás"
+      ],
+      "size": 6,
+      "share": 0.3529,
+      "sentiment": {
+        "NEU": 0.5,
+        "POS": 0.5
+      }
+    },
+    {
+      "id": 2,
+      "label": "jugador · posibilidad · base",
+      "words": [
+        "jugador",
+        "posibilidad",
+        "base",
+        "temporada",
+        "fútbol",
+        "joven",
+        "profesional",
+        "importante",
+        "rápidamente",
+        "claramente"
+      ],
+      "size": 5,
+      "share": 0.2941,
+      "sentiment": {
+        "POS": 1.0
+      }
+    }
+  ],
+  "topic_labels": {
+    "0": "equipo · año · partido",
+    "1": "marcelo · noches · lugar",
+    "2": "jugador · posibilidad · base"
+  },
+  "metrics": {
+    "radar": [
+      {
+        "axis": "Confianza",
+        "value": 56
+      },
+      {
+        "axis": "Positividad",
+        "value": 87
+      },
+      {
+        "axis": "Autocrítica",
+        "value": 0
+      },
+      {
+        "axis": "Enfoque táctico",
+        "value": 28
+      },
+      {
+        "axis": "Foco en el rival",
+        "value": 24
+      },
+      {
+        "axis": "Cohesión / grupo",
+        "value": 71
+      }
+    ],
+    "confianza": 56,
+    "sentiment": {
+      "POS": 0.647,
+      "NEU": 0.353,
+      "NEG": 0.0
+    },
+    "conclusions": [
+      "Transmite una **confianza moderada** (56%).",
+      "Tono **claramente positivo**: destaca lo bueno y motiva.",
+      "**Rara vez expone autocrítica** en público.",
+      "Su discurso se centra sobre todo en **el grupo y el plantel**."
+    ],
+    "headline": "Comunicador de confianza media, foco en el grupo y de tono positivo."
+  },
+  "evolution": [
+    {
+      "conf_id": "b3854084b8",
+      "title": "MARCELO GALLARDO tras el TRIUNFO de RIVER: \"MUY CONTENTO CON LOS DOS PRIMEROS PARTIDOS\"🔴⚪",
+      "date": "20260129",
+      "topic_distribution": {
+        "0": 0.3529,
+        "2": 0.2941,
+        "1": 0.3529
+      },
+      "sentiment": {
+        "POS": 0.6471,
+        "NEU": 0.3529
+      }
+    }
+  ],
+  "questions": {
+    "total": 27
+  },
+  "conferences": [
+    {
+      "id": "b3854084b8",
+      "title": "MARCELO GALLARDO tras el TRIUNFO de RIVER: \"MUY CONTENTO CON LOS DOS PRIMEROS PARTIDOS\"🔴⚪",
+      "url": "https://www.youtube.com/watch?v=NIRFjdaAUOI",
+      "date": "20260129",
+      "duration": 1091,
+      "n_preguntas": 27,
+      "n_respuestas": 147,
+      "n_segmentos": 174
+    }
+  ],
+  "coherence": {
+    "bertopic_cv": 0.701
+  }
+}

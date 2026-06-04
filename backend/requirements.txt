@@ -1,0 +1,29 @@
+# ── API ──────────────────────────────────────────────
+fastapi
+uvicorn[standard]
+python-multipart
+pydantic
+
+# ── Ingesta / Transcripción ──────────────────────────
+yt-dlp
+faster-whisper
+
+# ── Preprocesamiento NLP ─────────────────────────────
+spacy
+# modelo es: se instala aparte -> python -m spacy download es_core_news_md
+
+# ── Núcleo: Topic Modeling ───────────────────────────
+bertopic
+sentence-transformers
+scikit-learn
+gensim            # LDA baseline + coherencia c_v
+
+# ── Capa de aplicación: Perfil de comunicación ───────
+pysentimiento     # sentimiento/emoción en español (RoBERTuito, UBA)
+
+# ── Datos / utilidades ───────────────────────────────
+pandas
+numpy
+matplotlib
+plotly
+wordcloud

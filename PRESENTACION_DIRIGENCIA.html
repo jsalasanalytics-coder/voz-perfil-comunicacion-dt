@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Voz — Presentación Ejecutiva</title>
+<style>
+  :root{
+    --bg:#0a0a0f; --bg2:#12121a; --fg:#f5f5f7; --muted:#9b9ba6;
+    --accent:#0a84ff; --accent2:#5e5ce6; --good:#30d158; --warn:#ffd60a; --bad:#ff453a;
+    --card:#1a1a24; --border:#2a2a36;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--fg);overflow:hidden;-webkit-font-smoothing:antialiased;
+  }
+  .deck{height:100vh;width:100vw;position:relative}
+  .slide{
+    position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;
+    padding:6vh 9vw;animation:fade .5s ease;background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(94,92,230,.18), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, rgba(10,132,255,.16), transparent 55%),
+      var(--bg);
+  }
+  .slide.active{display:flex}
+  @keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .kicker{color:var(--accent);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;margin-bottom:1.2rem}
+  h1{font-size:5.5rem;font-weight:700;letter-spacing:-.03em;line-height:1}
+  h2{font-size:2.8rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem;line-height:1.05}
+  h3{font-size:1.35rem;font-weight:600;margin-bottom:.5rem}
+  p,li{font-size:1.35rem;line-height:1.55;color:var(--muted);font-weight:400}
+  .lead{font-size:1.7rem;color:var(--fg);max-width:60ch}
+  .sub{font-size:1.6rem;color:var(--muted);margin-top:1.2rem;font-weight:400}
+  strong{color:var(--fg);font-weight:600}
+  .accent{color:var(--accent)}
+  .grid{display:grid;gap:1.4rem;margin-top:2.2rem}
+  .g2{grid-template-columns:1fr 1fr}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:1.6rem 1.7rem}
+  .card .num{font-size:3.4rem;font-weight:700;letter-spacing:-.02em;color:var(--fg);line-height:1}
+  .card .lbl{color:var(--muted);font-size:1.05rem;margin-top:.4rem}
+  .step{display:flex;gap:1.1rem;align-items:flex-start;margin:1.1rem 0}
+  .step .n{flex:0 0 2.6rem;height:2.6rem;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.2rem;color:#fff}
+  .step .body h3{margin:.1rem 0 .15rem}
+  .step .body p{font-size:1.15rem}
+  ul{list-style:none;margin-top:1.4rem}
+  ul li{position:relative;padding-left:1.8rem;margin:.85rem 0;font-size:1.4rem;color:var(--fg)}
+  ul li::before{content:"";position:absolute;left:0;top:.62em;width:.6rem;height:.6rem;border-radius:50%;
+    background:linear-gradient(135deg,var(--accent),var(--accent2))}
+  ul li span{color:var(--muted);font-size:1.15rem;display:block;margin-top:.1rem}
+  .bar{height:.7rem;border-radius:99px;background:#26263200;border:1px solid var(--border);overflow:hidden;margin-top:.4rem}
+  .bar > i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+  .row{display:flex;justify-content:space-between;align-items:baseline;margin-top:1rem}
+  .row .name{font-size:1.25rem;color:var(--fg);font-weight:600}
+  .row .val{font-size:1.05rem;color:var(--muted)}
+  .pill{display:inline-block;padding:.3rem .9rem;border-radius:99px;border:1px solid var(--border);
+    font-size:.95rem;color:var(--muted);margin-right:.5rem}
+  .footer{position:absolute;bottom:3vh;left:9vw;right:9vw;display:flex;justify-content:space-between;
+    align-items:center;color:#56566a;font-size:.95rem}
+  .progress{position:fixed;bottom:0;left:0;height:4px;background:linear-gradient(90deg,var(--accent),var(--accent2));
+    transition:width .4s ease;z-index:50}
+  .hint{position:fixed;bottom:1.2vh;right:1.5vw;color:#3a3a48;font-size:.85rem;z-index:50}
+  .quote{font-size:2.2rem;line-height:1.35;color:var(--fg);font-weight:500;max-width:24ch}
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+  .vs{display:flex;flex-direction:column;gap:1.2rem}
+  .compare{display:flex;align-items:center;gap:1.2rem}
+  .compare .label{flex:0 0 9rem;font-size:1.2rem;color:var(--fg);font-weight:600;text-align:right}
+  .compare .track{flex:1}
+  .win{color:var(--good);font-weight:700}
+  .tag{font-size:.85rem;color:var(--muted)}
+  .big-emoji{font-size:4rem;margin-bottom:1rem}
+  .logo{font-weight:700;letter-spacing:-.02em}
+  .logo .dot{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="progress" id="prog"></div>
+<div class="hint">← → para navegar · F pantalla completa</div>
+<div class="deck" id="deck">
+
+  <!-- 1 PORTADA -->
+  <section class="slide active">
+    <div class="kicker">Análisis de comunicación deportiva · NLP</div>
+    <h1>Voz<span class="accent">.</span></h1>
+    <p class="lead" style="margin-top:1.6rem">El perfil de comunicación de cada entrenador, construido automáticamente a partir de sus conferencias de prensa.</p>
+    <p class="sub">Trabajo Práctico Integrador · Procesamiento de Lenguaje Natural<br>Ingeniería en Inteligencia Artificial — Universidad de Palermo</p>
+    <div class="footer"><span class="logo">Voz<span class="dot">.</span></span><span>Presentación ejecutiva — 2026</span></div>
+  </section>
+
+  <!-- 2 PROBLEMA -->
+  <section class="slide">
+    <div class="kicker">El problema</div>
+    <h2>¿Cómo comunica nuestro entrenador?</h2>
+    <p class="lead" style="margin-top:1.2rem">Cada semana, el DT habla en conferencia de prensa. Ahí transmite confianza, marca tono, pone foco en el grupo o en el rival. Es <strong>información estratégica</strong> para el club.</p>
+    <div class="grid g3">
+      <div class="card"><div class="big-emoji">🗣️</div><h3>Hoy se analiza a mano</h3><p>Alguien escucha, toma notas y opina. Lento y subjetivo.</p></div>
+      <div class="card"><div class="big-emoji">📊</div><h3>No es medible</h3><p>No hay forma de comparar DTs ni de ver cómo cambia el discurso en el tiempo.</p></div>
+      <div class="card"><div class="big-emoji">⏱️</div><h3>No escala</h3><p>Seguir a varios entrenadores y rivales a la vez es inviable manualmente.</p></div>
+    </div>
+  </section>
+
+  <!-- 3 SOLUCION -->
+  <section class="slide">
+    <div class="kicker">La solución</div>
+    <h2>Voz convierte voz en datos</h2>
+    <div class="twocol" style="margin-top:1.5rem">
+      <div>
+        <p class="lead">Pegás el link de una conferencia de YouTube. En minutos, Voz te devuelve el <strong>perfil comunicacional</strong> del entrenador.</p>
+        <ul>
+          <li>De qué habla <span>Los temas dominantes de su discurso</span></li>
+          <li>Cómo lo dice <span>Tono, confianza y positividad</span></li>
+          <li>Cómo evoluciona <span>Conferencia a conferencia</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--accent)">Una herramienta, no un informe</h3>
+        <p style="margin-top:.6rem">Voz es una app interna tipo CRM: gestionás entrenadores, cargás sus conferencias y la plataforma arma y actualiza cada perfil sola.</p>
+        <div style="margin-top:1.4rem">
+          <span class="pill">Transcripción automática</span>
+          <span class="pill">Perfil visual</span>
+          <span class="pill">Comparable</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 COMO FUNCIONA -->
+  <section class="slide">
+    <div class="kicker">Cómo funciona · en 4 pasos</div>
+    <h2>De un video de YouTube a un perfil</h2>
+    <div style="margin-top:1.4rem">
+      <div class="step"><div class="n">1</div><div class="body"><h3>Escucha</h3><p>Descarga el audio de la conferencia y lo transcribe a texto automáticamente <span class="tag">(tecnología de reconocimiento de voz — la misma familia que usan los asistentes virtuales)</span></p></div></div>
+      <div class="step"><div class="n">2</div><div class="body"><h3>Separa</h3><p>Distingue las preguntas del periodista de las respuestas del entrenador. Solo nos interesa lo que dice el DT.</p></div></div>
+      <div class="step"><div class="n">3</div><div class="body"><h3>Descubre los temas</h3><p>Agrupa lo que dijo en temas latentes —presión, rival, grupo, jugadas— sin que nadie se los indique de antemano. <span class="tag">(esto es el corazón técnico: "topic modeling")</span></p></div></div>
+      <div class="step"><div class="n">4</div><div class="body"><h3>Construye el perfil</h3><p>Mide cuánto habla de cada tema y con qué tono, y lo muestra como un radar de 6 dimensiones.</p></div></div>
+    </div>
+  </section>
+
+  <!-- 5 DIMENSIONES -->
+  <section class="slide">
+    <div class="kicker">El perfil · 6 dimensiones</div>
+    <h2>La huella comunicacional de un DT</h2>
+    <p class="lead" style="margin-top:.8rem">Cada entrenador queda descripto por seis ejes medibles y comparables:</p>
+    <div class="grid g3" style="margin-top:1.8rem">
+      <div class="card"><h3>🎯 Confianza</h3><p>Cuán seguro y asertivo se muestra.</p></div>
+      <div class="card"><h3>😊 Positividad</h3><p>Balance entre lo positivo y lo crítico.</p></div>
+      <div class="card"><h3>🔍 Autocrítica</h3><p>Si asume responsabilidad en público.</p></div>
+      <div class="card"><h3>♟️ Enfoque táctico</h3><p>Cuánto habla de juego y jugadas.</p></div>
+      <div class="card"><h3>⚔️ Foco en el rival</h3><p>Cuánto centra el discurso en el oponente.</p></div>
+      <div class="card"><h3>🤝 Cohesión / grupo</h3><p>Cuánto destaca al plantel y el equipo.</p></div>
+    </div>
+  </section>
+
+  <!-- 6 RESULTADOS: CONTRASTE -->
+  <section class="slide">
+    <div class="kicker">Resultados · perfiles reales</div>
+    <h2>Dos entrenadores, dos voces</h2>
+    <div class="twocol" style="margin-top:1.5rem">
+      <div class="card">
+        <h3 style="color:var(--good)">Marcelo Gallardo</h3>
+        <p style="margin:.4rem 0 1rem">Tras un triunfo de River</p>
+        <div class="row"><span class="name">Confianza</span><span class="val">56%</span></div><div class="bar"><i style="width:56%"></i></div>
+        <div class="row"><span class="name">Positividad</span><span class="val">87%</span></div><div class="bar"><i style="width:87%"></i></div>
+        <div class="row"><span class="name">Cohesión / grupo</span><span class="val">71%</span></div><div class="bar"><i style="width:71%"></i></div>
+        <p style="margin-top:1.1rem;font-size:1.1rem">Tono <strong>claramente positivo</strong>, centrado en el plantel.</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--warn)">Claudio Úbeda</h3>
+        <p style="margin:.4rem 0 1rem">En un momento de incertidumbre</p>
+        <div class="row"><span class="name">Confianza</span><span class="val">27%</span></div><div class="bar"><i style="width:27%"></i></div>
+        <div class="row"><span class="name">Positividad</span><span class="val">43%</span></div><div class="bar"><i style="width:43%"></i></div>
+        <div class="row"><span class="name">Cohesión / grupo</span><span class="val">23%</span></div><div class="bar"><i style="width:23%"></i></div>
+        <p style="margin-top:1.1rem;font-size:1.1rem">Discurso de <strong>cautela</strong>, foco en resultados.</p>
+      </div>
+    </div>
+    <p class="sub" style="margin-top:1.4rem">El mismo método aplicado a ambos los separa con claridad. <strong>Eso valida el enfoque.</strong></p>
+  </section>
+
+  <!-- 7 RIGOR / MODELOS -->
+  <section class="slide">
+    <div class="kicker">Rigor metodológico</div>
+    <h2>Probamos dos motores y medimos</h2>
+    <p class="lead" style="margin-top:.8rem">No elegimos la técnica "a ojo": comparamos un modelo neuronal moderno (BERTopic) contra un clásico de referencia (LDA) con una métrica objetiva de calidad de temas, la <strong>coherencia <em>c<sub>v</sub></em></strong>.</p>
+    <div class="vs" style="margin-top:2rem">
+      <div class="compare"><div class="label">BERTopic</div><div class="track"><div class="bar" style="height:1.3rem"><i style="width:63%"></i></div></div><div style="flex:0 0 5rem">0.298</div></div>
+      <div class="compare"><div class="label">LDA (k=8)</div><div class="track"><div class="bar" style="height:1.3rem"><i style="width:100%;background:linear-gradient(90deg,var(--good),#2bb14e)"></i></div></div><div style="flex:0 0 5rem"><span class="win">0.474</span></div></div>
+    </div>
+    <p class="sub" style="margin-top:1.8rem">En este corpus chico y de lenguaje oral, <strong>LDA dio mejor coherencia</strong>; BERTopic produce temas más legibles por conferencia. La decisión quedó <strong>respaldada por datos</strong>, no por intuición.</p>
+  </section>
+
+  <!-- 8 VALOR -->
+  <section class="slide">
+    <div class="kicker">Valor para el club</div>
+    <h2>¿Para qué sirve?</h2>
+    <div class="grid g2" style="margin-top:1.6rem">
+      <div class="card"><h3>🎽 Scouting de DTs</h3><p>Perfilar candidatos a director técnico por su forma de comunicar antes de contratarlos.</p></div>
+      <div class="card"><h3>🕵️ Inteligencia de rivales</h3><p>Anticipar el estado anímico y el foco del entrenador rival de cara a un partido.</p></div>
+      <div class="card"><h3>🎙️ Gestión de prensa</h3><p>Dar feedback objetivo al cuerpo técnico sobre el mensaje que proyecta hacia afuera.</p></div>
+      <div class="card"><h3>📈 Seguimiento en el tiempo</h3><p>Ver cómo cambia el discurso tras victorias, derrotas o crisis institucionales.</p></div>
+    </div>
+  </section>
+
+  <!-- 9 LIMITACIONES -->
+  <section class="slide">
+    <div class="kicker">Honestidad · alcance</div>
+    <h2>Qué falta y qué no hace (todavía)</h2>
+    <ul>
+      <li>Corpus inicial chico <span>5 entrenadores, 1 conferencia cada uno (~136 oraciones). El método ya funciona; con más conferencias los temas se vuelven más estables.</span></li>
+      <li>Ruido de transcripción <span>Algunos nombres propios se transcriben mal (ej. "River" → "ríbe"). Corregible con normalización de entidades.</span></li>
+      <li>El sentimiento es un descriptor, no un veredicto <span>Resume el tono general, no juzga frase por frase.</span></li>
+      <li>No reemplaza el criterio humano <span>Es una herramienta de apoyo a la decisión, no la decisión.</span></li>
+    </ul>
+  </section>
+
+  <!-- 10 CONCLUSIONES -->
+  <section class="slide">
+    <div class="kicker">Conclusiones</div>
+    <h2>De lo subjetivo a lo medible</h2>
+    <div class="twocol" style="margin-top:1.2rem">
+      <div>
+        <ul>
+          <li>Voz construye un perfil <strong>objetivo, automático y reproducible</strong> de cómo comunica cada DT.</li>
+          <li>El enfoque <strong>distingue entrenadores</strong> con claridad — la "huella" es real.</li>
+          <li>La decisión técnica está <strong>respaldada por una métrica</strong>, no por intuición.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--accent)">Próximos pasos</h3>
+        <ul style="margin-top:.6rem">
+          <li style="font-size:1.15rem">Ampliar el corpus de conferencias</li>
+          <li style="font-size:1.15rem">Normalizar nombres propios</li>
+          <li style="font-size:1.15rem">Comparador directo entre DTs</li>
+          <li style="font-size:1.15rem">Alertas de cambios de discurso</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 CIERRE -->
+  <section class="slide">
+    <div class="kicker">Gracias</div>
+    <p class="quote">Escuchar a un entrenador ahora es <span class="accent">medible</span>.</p>
+    <p class="sub" style="margin-top:2rem">Voz<span class="accent">.</span> — demo en vivo disponible</p>
+    <div class="footer"><span class="logo">Voz<span class="dot">.</span></span><span>Universidad de Palermo · Ingeniería en IA</span></div>
+  </section>
+
+</div>
+
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  let i=0;
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+    document.getElementById('prog').style.width=((i)/(slides.length-1)*100)+'%';
+  }
+  document.addEventListener('keydown',e=>{
+    if(['ArrowRight','ArrowDown',' ','PageDown'].includes(e.key)){e.preventDefault();show(i+1)}
+    if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();show(i-1)}
+    if(e.key==='Home')show(0);
+    if(e.key==='End')show(slides.length-1);
+    if(e.key==='f'||e.key==='F'){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen()}
+  });
+  document.addEventListener('click',e=>{if(e.clientX>window.innerWidth*0.6)show(i+1);else if(e.clientX<window.innerWidth*0.4)show(i-1)});
+  show(0);
+</script>
+</body>
+</html>

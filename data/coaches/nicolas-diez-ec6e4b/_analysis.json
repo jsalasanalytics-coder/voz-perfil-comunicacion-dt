@@ -1,0 +1,190 @@
+{
+  "_sig": "259a264761#nt=None",
+  "ready": true,
+  "coach": {
+    "id": "nicolas-diez-ec6e4b",
+    "name": "Nicolás Diez",
+    "team": "Argentinos Juniors",
+    "photo_ext": null,
+    "created_at": "2026-06-01T19:55:12.239357+00:00"
+  },
+  "n_conferences": 1,
+  "n_sentences": 33,
+  "n_topics": 4,
+  "topics": [
+    {
+      "id": 0,
+      "label": "equipo · gente · ganar",
+      "words": [
+        "equipo",
+        "gente",
+        "ganar",
+        "defensor",
+        "juega",
+        "partidos",
+        "partido",
+        "hablar",
+        "contar",
+        "alto vuelo"
+      ],
+      "size": 9,
+      "share": 0.2727,
+      "sentiment": {
+        "NEG": 0.5556,
+        "NEU": 0.2222,
+        "POS": 0.2222
+      }
+    },
+    {
+      "id": 1,
+      "label": "jugadores · arco · partido",
+      "words": [
+        "jugadores",
+        "arco",
+        "partido",
+        "tuvimos",
+        "tiempo",
+        "situaciones",
+        "florentín",
+        "rival",
+        "teniendo",
+        "semifinal"
+      ],
+      "size": 8,
+      "share": 0.2424,
+      "sentiment": {
+        "NEU": 0.25,
+        "POS": 0.75
+      }
+    },
+    {
+      "id": 2,
+      "label": "minutos · tiempo · tuvimos",
+      "words": [
+        "minutos",
+        "tiempo",
+        "tuvimos",
+        "penales",
+        "puse",
+        "pelota",
+        "analizar",
+        "volante",
+        "mala",
+        "faltando"
+      ],
+      "size": 8,
+      "share": 0.2424,
+      "sentiment": {
+        "NEU": 0.75,
+        "NEG": 0.125,
+        "POS": 0.125
+      }
+    },
+    {
+      "id": 3,
+      "label": "puse · semana · hablar",
+      "words": [
+        "puse",
+        "semana",
+        "hablar",
+        "partido",
+        "gol",
+        "equipo",
+        "pide",
+        "juegue",
+        "juego",
+        "puse volante"
+      ],
+      "size": 8,
+      "share": 0.2424,
+      "sentiment": {
+        "NEG": 0.375,
+        "NEU": 0.5,
+        "POS": 0.125
+      }
+    }
+  ],
+  "topic_labels": {
+    "0": "equipo · gente · ganar",
+    "1": "jugadores · arco · partido",
+    "2": "minutos · tiempo · tuvimos",
+    "3": "puse · semana · hablar"
+  },
+  "metrics": {
+    "radar": [
+      {
+        "axis": "Confianza",
+        "value": 32
+      },
+      {
+        "axis": "Positividad",
+        "value": 57
+      },
+      {
+        "axis": "Autocrítica",
+        "value": 0
+      },
+      {
+        "axis": "Enfoque táctico",
+        "value": 29
+      },
+      {
+        "axis": "Foco en el rival",
+        "value": 12
+      },
+      {
+        "axis": "Cohesión / grupo",
+        "value": 40
+      }
+    ],
+    "confianza": 32,
+    "sentiment": {
+      "POS": 0.303,
+      "NEU": 0.424,
+      "NEG": 0.273
+    },
+    "conclusions": [
+      "Su discurso muestra **cautela e incertidumbre** (confianza 32%).",
+      "Tono **equilibrado** entre lo positivo y lo crítico.",
+      "**Rara vez expone autocrítica** en público.",
+      "Su discurso se centra sobre todo en **el grupo y el plantel**."
+    ],
+    "headline": "Comunicador de perfil cauto, foco en el grupo y de tono medido."
+  },
+  "evolution": [
+    {
+      "conf_id": "259a264761",
+      "title": "🎤🔥 EXPLOSIVA conferencia de Nicolás Diez, tras la eliminación de #AAAJ frente a #Belgrano x penales",
+      "date": null,
+      "topic_distribution": {
+        "1": 0.2424,
+        "0": 0.2727,
+        "2": 0.2424,
+        "3": 0.2424
+      },
+      "sentiment": {
+        "NEU": 0.4242,
+        "NEG": 0.2727,
+        "POS": 0.303
+      }
+    }
+  ],
+  "questions": {
+    "total": 6
+  },
+  "conferences": [
+    {
+      "id": "259a264761",
+      "title": "🎤🔥 EXPLOSIVA conferencia de Nicolás Diez, tras la eliminación de #AAAJ frente a #Belgrano x penales",
+      "url": "https://www.youtube.com/watch?v=I7YzVGOo4hQ",
+      "date": null,
+      "duration": null,
+      "n_preguntas": 6,
+      "n_respuestas": 69,
+      "n_segmentos": 75
+    }
+  ],
+  "coherence": {
+    "bertopic_cv": 0.3837
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "_sig": "8892a9c2f9#nt=None",
+  "ready": true,
+  "coach": {
+    "id": "bielsa-f4aba8",
+    "name": "Bielsa",
+    "team": "Selección de Uruguay",
+    "photo_ext": null,
+    "created_at": "2026-06-01T19:55:12.238048+00:00"
+  },
+  "n_conferences": 1,
+  "n_sentences": 20,
+  "n_topics": 3,
+  "topics": [
+    {
+      "id": 0,
+      "label": "ejercicio · años · 300 ejercicios",
+      "words": [
+        "ejercicio",
+        "años",
+        "300 ejercicios",
+        "ejercicios",
+        "300",
+        "40 años",
+        "40",
+        "incorporo",
+        "partidos",
+        "revisar"
+      ],
+      "size": 7,
+      "share": 0.35,
+      "sentiment": {
+        "NEU": 0.8571,
+        "POS": 0.1429
+      }
+    },
+    {
+      "id": 1,
+      "label": "rival · jugada · callejón",
+      "words": [
+        "rival",
+        "jugada",
+        "callejón",
+        "presenta juego",
+        "volante",
+        "jugadas soluciones",
+        "lateral",
+        "lateral central",
+        "libre",
+        "libre volante"
+      ],
+      "size": 7,
+      "share": 0.35,
+      "sentiment": {
+        "NEU": 0.4286,
+        "NEG": 0.5714
+      }
+    },
+    {
+      "id": 2,
+      "label": "fútbol · imaginación · digo",
+      "words": [
+        "fútbol",
+        "imaginación",
+        "digo",
+        "efectiva",
+        "necesita",
+        "construido",
+        "vale fútbol",
+        "vale",
+        "problema reconocible",
+        "solución"
+      ],
+      "size": 6,
+      "share": 0.3,
+      "sentiment": {
+        "POS": 0.1667,
+        "NEU": 0.6667,
+        "NEG": 0.1667
+      }
+    }
+  ],
+  "topic_labels": {
+    "0": "ejercicio · años · 300 ejercicios",
+    "1": "rival · jugada · callejón",
+    "2": "fútbol · imaginación · digo"
+  },
+  "metrics": {
+    "radar": [
+      {
+        "axis": "Confianza",
+        "value": 52
+      },
+      {
+        "axis": "Positividad",
+        "value": 48
+      },
+      {
+        "axis": "Autocrítica",
+        "value": 0
+      },
+      {
+        "axis": "Enfoque táctico",
+        "value": 30
+      },
+      {
+        "axis": "Foco en el rival",
+        "value": 20
+      },
+      {
+        "axis": "Cohesión / grupo",
+        "value": 16
+      }
+    ],
+    "confianza": 52,
+    "sentiment": {
+      "POS": 0.1,
+      "NEU": 0.65,
+      "NEG": 0.25
+    },
+    "conclusions": [
+      "Transmite una **confianza moderada** (52%).",
+      "Tono **equilibrado** entre lo positivo y lo crítico.",
+      "**Rara vez expone autocrítica** en público."
+    ],
+    "headline": "Comunicador de confianza media, perfil táctico y de tono medido."
+  },
+  "evolution": [
+    {
+      "conf_id": "8892a9c2f9",
+      "title": "La APLAUDIDA REFLEXIÓN de BIELSA en rueda de prensa sobre los ENTRENADORES en el FÚTBOL",
+      "date": null,
+      "topic_distribution": {
+        "0": 0.35,
+        "1": 0.35,
+        "2": 0.3
+      },
+      "sentiment": {
+        "NEU": 0.65,
+        "NEG": 0.25,
+        "POS": 0.1
+      }
+    }
+  ],
+  "questions": {
+    "total": 1
+  },
+  "conferences": [
+    {
+      "id": "8892a9c2f9",
+      "title": "La APLAUDIDA REFLEXIÓN de BIELSA en rueda de prensa sobre los ENTRENADORES en el FÚTBOL",
+      "url": "https://www.youtube.com/watch?v=L_kxz6uqthE",
+      "date": null,
+      "duration": null,
+      "n_preguntas": 1,
+      "n_respuestas": 36,
+      "n_segmentos": 37
+    }
+  ],
+  "coherence": {
+    "bertopic_cv": 0.6972
+  }
+}

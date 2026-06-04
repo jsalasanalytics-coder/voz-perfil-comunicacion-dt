@@ -1,0 +1,214 @@
+{
+  "_sig": "b3ac52baef#nt=None",
+  "ready": true,
+  "coach": {
+    "id": "toto-berizzo-dd4aa8",
+    "name": "Toto Berizzo",
+    "team": "",
+    "photo_ext": null,
+    "created_at": "2026-06-04T20:31:40.657262+00:00"
+  },
+  "n_conferences": 1,
+  "n_sentences": 87,
+  "n_topics": 5,
+  "topics": [
+    {
+      "id": 0,
+      "label": "idea · jugar · partido",
+      "words": [
+        "idea",
+        "jugar",
+        "partido",
+        "profundidad",
+        "reflexión",
+        "datos",
+        "gente",
+        "nivel",
+        "altura",
+        "queríamos"
+      ],
+      "size": 25,
+      "share": 0.2874,
+      "sentiment": {
+        "NEG": 0.24,
+        "NEU": 0.2,
+        "POS": 0.56
+      }
+    },
+    {
+      "id": 1,
+      "label": "preguntarle · eduardo · septiembre",
+      "words": [
+        "preguntarle",
+        "eduardo",
+        "septiembre",
+        "decía",
+        "ben",
+        "intensidad",
+        "viendo",
+        "vestuario",
+        "movimientos",
+        "opinión"
+      ],
+      "size": 18,
+      "share": 0.2069,
+      "sentiment": {
+        "POS": 0.6111,
+        "NEU": 0.3889
+      }
+    },
+    {
+      "id": 2,
+      "label": "mundo · equipo · partido",
+      "words": [
+        "mundo",
+        "equipo",
+        "partido",
+        "deseo",
+        "jugando",
+        "nivel",
+        "selección",
+        "eliminatoria",
+        "anteriores",
+        "seguir"
+      ],
+      "size": 17,
+      "share": 0.1954,
+      "sentiment": {
+        "NEU": 0.5294,
+        "NEG": 0.1176,
+        "POS": 0.3529
+      }
+    },
+    {
+      "id": 3,
+      "label": "futbolistas · selección · liga",
+      "words": [
+        "futbolistas",
+        "selección",
+        "liga",
+        "intensidad",
+        "gente",
+        "equipos",
+        "partidos",
+        "nivel",
+        "18",
+        "desafío"
+      ],
+      "size": 14,
+      "share": 0.1609,
+      "sentiment": {
+        "POS": 0.4286,
+        "NEG": 0.2857,
+        "NEU": 0.2857
+      }
+    },
+    {
+      "id": 4,
+      "label": "ben · alexis · bolivia",
+      "words": [
+        "ben",
+        "alexis",
+        "bolivia",
+        "diego",
+        "arabena",
+        "sierra",
+        "santa cruz",
+        "santa",
+        "bartichotto",
+        "bruno"
+      ],
+      "size": 13,
+      "share": 0.1494,
+      "sentiment": {
+        "NEU": 0.6154,
+        "POS": 0.3077,
+        "NEG": 0.0769
+      }
+    }
+  ],
+  "topic_labels": {
+    "0": "idea · jugar · partido",
+    "1": "preguntarle · eduardo · septiembre",
+    "2": "mundo · equipo · partido",
+    "3": "futbolistas · selección · liga",
+    "4": "ben · alexis · bolivia"
+  },
+  "metrics": {
+    "radar": [
+      {
+        "axis": "Confianza",
+        "value": 41
+      },
+      {
+        "axis": "Positividad",
+        "value": 71
+      },
+      {
+        "axis": "Autocrítica",
+        "value": 4
+      },
+      {
+        "axis": "Enfoque táctico",
+        "value": 11
+      },
+      {
+        "axis": "Foco en el rival",
+        "value": 14
+      },
+      {
+        "axis": "Cohesión / grupo",
+        "value": 29
+      }
+    ],
+    "confianza": 41,
+    "sentiment": {
+      "POS": 0.471,
+      "NEU": 0.379,
+      "NEG": 0.149
+    },
+    "conclusions": [
+      "Su discurso muestra **cautela e incertidumbre** (confianza 41%).",
+      "Tono **claramente positivo**: destaca lo bueno y motiva.",
+      "**Rara vez expone autocrítica** en público."
+    ],
+    "headline": "Comunicador de perfil cauto, foco en el grupo y de tono positivo."
+  },
+  "evolution": [
+    {
+      "conf_id": "b3ac52baef",
+      "title": "🔴 ¡En vivo! Conferencia de Eduardo Berizzo",
+      "date": "20230619",
+      "topic_distribution": {
+        "0": 0.2874,
+        "4": 0.1494,
+        "1": 0.2069,
+        "2": 0.1954,
+        "3": 0.1609
+      },
+      "sentiment": {
+        "NEG": 0.1494,
+        "NEU": 0.3793,
+        "POS": 0.4713
+      }
+    }
+  ],
+  "questions": {
+    "total": 53
+  },
+  "conferences": [
+    {
+      "id": "b3ac52baef",
+      "title": "🔴 ¡En vivo! Conferencia de Eduardo Berizzo",
+      "url": "https://www.youtube.com/watch?v=CyS2W38jJlI",
+      "date": "20230619",
+      "duration": 1150,
+      "n_preguntas": 53,
+      "n_respuestas": 325,
+      "n_segmentos": 378
+    }
+  ],
+  "coherence": {
+    "bertopic_cv": 0.3934
+  }
+}

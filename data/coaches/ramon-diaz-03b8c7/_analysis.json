@@ -1,0 +1,190 @@
+{
+  "_sig": "ba4a05f9b7#nt=None",
+  "ready": true,
+  "coach": {
+    "id": "ramon-diaz-03b8c7",
+    "name": "Ramón Díaz",
+    "team": "varios",
+    "photo_ext": null,
+    "created_at": "2026-06-01T19:55:12.238833+00:00"
+  },
+  "n_conferences": 1,
+  "n_sentences": 28,
+  "n_topics": 4,
+  "topics": [
+    {
+      "id": 0,
+      "label": "equipo · peleando · campeonato",
+      "words": [
+        "equipo",
+        "peleando",
+        "campeonato",
+        "gente",
+        "puedan",
+        "temores",
+        "tantos temores",
+        "tantos",
+        "petejar gente",
+        "15"
+      ],
+      "size": 8,
+      "share": 0.2857,
+      "sentiment": {
+        "NEG": 0.375,
+        "POS": 0.375,
+        "NEU": 0.25
+      }
+    },
+    {
+      "id": 1,
+      "label": "boca · jugar · ríbe",
+      "words": [
+        "boca",
+        "jugar",
+        "ríbe",
+        "viendo gente",
+        "salió",
+        "pedía ferrari",
+        "partido ríbe",
+        "plata convencido",
+        "pedía",
+        "programando"
+      ],
+      "size": 7,
+      "share": 0.25,
+      "sentiment": {
+        "POS": 0.2857,
+        "NEU": 0.5714,
+        "NEG": 0.1429
+      }
+    },
+    {
+      "id": 2,
+      "label": "pibes · boca · ríbe",
+      "words": [
+        "pibes",
+        "boca",
+        "ríbe",
+        "habíamos jugado",
+        "jugado",
+        "habíamos",
+        "gustaría",
+        "gente",
+        "traigo",
+        "ríbe boca"
+      ],
+      "size": 7,
+      "share": 0.25,
+      "sentiment": {
+        "NEU": 0.8571,
+        "POS": 0.1429
+      }
+    },
+    {
+      "id": 3,
+      "label": "bose · ríbe habíamos · festejar empates",
+      "words": [
+        "bose",
+        "ríbe habíamos",
+        "festejar empates",
+        "empates",
+        "distintos pensamientos",
+        "gusta",
+        "botero irse",
+        "botero",
+        "boso bose",
+        "boso"
+      ],
+      "size": 6,
+      "share": 0.2143,
+      "sentiment": {
+        "POS": 0.1667,
+        "NEG": 0.5,
+        "NEU": 0.3333
+      }
+    }
+  ],
+  "topic_labels": {
+    "0": "equipo · peleando · campeonato",
+    "1": "boca · jugar · ríbe",
+    "2": "pibes · boca · ríbe",
+    "3": "bose · ríbe habíamos · festejar empates"
+  },
+  "metrics": {
+    "radar": [
+      {
+        "axis": "Confianza",
+        "value": 55
+      },
+      {
+        "axis": "Positividad",
+        "value": 55
+      },
+      {
+        "axis": "Autocrítica",
+        "value": 0
+      },
+      {
+        "axis": "Enfoque táctico",
+        "value": 4
+      },
+      {
+        "axis": "Foco en el rival",
+        "value": 14
+      },
+      {
+        "axis": "Cohesión / grupo",
+        "value": 51
+      }
+    ],
+    "confianza": 55,
+    "sentiment": {
+      "POS": 0.25,
+      "NEU": 0.5,
+      "NEG": 0.25
+    },
+    "conclusions": [
+      "Transmite una **confianza moderada** (55%).",
+      "Tono **equilibrado** entre lo positivo y lo crítico.",
+      "**Rara vez expone autocrítica** en público.",
+      "Su discurso se centra sobre todo en **el grupo y el plantel**."
+    ],
+    "headline": "Comunicador de confianza media, foco en el grupo y de tono medido."
+  },
+  "evolution": [
+    {
+      "conf_id": "ba4a05f9b7",
+      "title": "🗣️🔥 ¡TOP 10 MEJORES CHICANAS DE RAMÓN DÍAZ!",
+      "date": null,
+      "topic_distribution": {
+        "0": 0.2857,
+        "1": 0.25,
+        "2": 0.25,
+        "3": 0.2143
+      },
+      "sentiment": {
+        "NEG": 0.25,
+        "POS": 0.25,
+        "NEU": 0.5
+      }
+    }
+  ],
+  "questions": {
+    "total": 10
+  },
+  "conferences": [
+    {
+      "id": "ba4a05f9b7",
+      "title": "🗣️🔥 ¡TOP 10 MEJORES CHICANAS DE RAMÓN DÍAZ!",
+      "url": "https://www.youtube.com/watch?v=IhjBp2zuzW4",
+      "date": null,
+      "duration": null,
+      "n_preguntas": 10,
+      "n_respuestas": 48,
+      "n_segmentos": 58
+    }
+  ],
+  "coherence": {
+    "bertopic_cv": 0.668
+  }
+}

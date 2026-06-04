@@ -1,0 +1,186 @@
+{
+  "_sig": "f125da3a2e#nt=None",
+  "ready": true,
+  "coach": {
+    "id": "ubeda-3614b3",
+    "name": "Claudio Úbeda",
+    "team": "Boca Juniors",
+    "photo_ext": null,
+    "created_at": "2026-06-01T19:55:12.236900+00:00"
+  },
+  "n_conferences": 1,
+  "n_sentences": 38,
+  "n_topics": 4,
+  "topics": [
+    {
+      "id": 0,
+      "label": "claudio · fútbol · esports",
+      "words": [
+        "claudio",
+        "fútbol",
+        "esports",
+        "cero",
+        "noches",
+        "claudio noches",
+        "boca",
+        "",
+        "",
+        ""
+      ],
+      "size": 10,
+      "share": 0.2632,
+      "sentiment": {
+        "NEU": 1.0
+      }
+    },
+    {
+      "id": 1,
+      "label": "resultado · resultados · difícil",
+      "words": [
+        "resultado",
+        "resultados",
+        "difícil",
+        "única",
+        "tiempo",
+        "posibilidad",
+        "llegaron",
+        "llegamos claridad",
+        "llegamos",
+        "cero"
+      ],
+      "size": 10,
+      "share": 0.2632,
+      "sentiment": {
+        "NEG": 0.5,
+        "NEU": 0.5
+      }
+    },
+    {
+      "id": 2,
+      "label": "partidos · tuvimos · partido",
+      "words": [
+        "partidos",
+        "tuvimos",
+        "partido",
+        "claudio",
+        "leandro",
+        "jugadores",
+        "gente",
+        "fútbol",
+        "esports",
+        "atrás"
+      ],
+      "size": 10,
+      "share": 0.2632,
+      "sentiment": {
+        "NEU": 0.5,
+        "NEG": 0.5
+      }
+    },
+    {
+      "id": 3,
+      "label": "gol · claridad · jugadores",
+      "words": [
+        "gol",
+        "claridad",
+        "jugadores",
+        "gente",
+        "leandro",
+        "única",
+        "atrás",
+        "llegamos",
+        "difícil",
+        "llegaron"
+      ],
+      "size": 8,
+      "share": 0.2105,
+      "sentiment": {
+        "NEU": 0.625,
+        "NEG": 0.125,
+        "POS": 0.25
+      }
+    }
+  ],
+  "topic_labels": {
+    "0": "claudio · fútbol · esports",
+    "1": "resultado · resultados · difícil",
+    "2": "partidos · tuvimos · partido",
+    "3": "gol · claridad · jugadores"
+  },
+  "metrics": {
+    "radar": [
+      {
+        "axis": "Confianza",
+        "value": 27
+      },
+      {
+        "axis": "Positividad",
+        "value": 43
+      },
+      {
+        "axis": "Autocrítica",
+        "value": 13
+      },
+      {
+        "axis": "Enfoque táctico",
+        "value": 19
+      },
+      {
+        "axis": "Foco en el rival",
+        "value": 5
+      },
+      {
+        "axis": "Cohesión / grupo",
+        "value": 23
+      }
+    ],
+    "confianza": 27,
+    "sentiment": {
+      "POS": 0.053,
+      "NEU": 0.658,
+      "NEG": 0.289
+    },
+    "conclusions": [
+      "Su discurso muestra **cautela e incertidumbre** (confianza 27%).",
+      "Tono **equilibrado** entre lo positivo y lo crítico.",
+      "**Rara vez expone autocrítica** en público."
+    ],
+    "headline": "Comunicador de perfil cauto, foco en el grupo y de tono medido."
+  },
+  "evolution": [
+    {
+      "conf_id": "f125da3a2e",
+      "title": "\"NO ES MOMENTO PARA HABLAR DE MI CONTINUIDAD\" Claudio Ubeda en conferencia de prensa",
+      "date": null,
+      "topic_distribution": {
+        "0": 0.2632,
+        "1": 0.2632,
+        "3": 0.2105,
+        "2": 0.2632
+      },
+      "sentiment": {
+        "NEU": 0.6579,
+        "NEG": 0.2895,
+        "POS": 0.0526
+      }
+    }
+  ],
+  "questions": {
+    "total": 32
+  },
+  "conferences": [
+    {
+      "id": "f125da3a2e",
+      "title": "\"NO ES MOMENTO PARA HABLAR DE MI CONTINUIDAD\" Claudio Ubeda en conferencia de prensa",
+      "url": "https://www.youtube.com/watch?v=YUFtUSz-04Y",
+      "date": null,
+      "duration": null,
+      "n_preguntas": 32,
+      "n_respuestas": 126,
+      "n_segmentos": 158
+    }
+  ],
+  "coherence": {
+    "bertopic_cv": 0.3756
+  }
+}

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Voz — Informe</title>
+<style>
+  @page {
+    size: A4;
+    margin: 24mm 22mm 22mm 22mm;
+  }
+  :root{
+    --ink:#1d1d1f; --subtle:#6e6e73; --line:#d2d2d7; --hair:#e8e8ed;
+    --accent:#0071e3; --accent-soft:#f0f6ff; --paper:#ffffff;
+  }
+  *{box-sizing:border-box}
+  html{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;
+    color:var(--ink); font-size:10.5pt; line-height:1.62; margin:0;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  }
+  p{margin:0 0 .85em; color:#33333a; max-width:64ch}
+  strong{font-weight:600;color:var(--ink)}
+  em{font-style:italic}
+  a{color:var(--accent);text-decoration:none}
+  h1,h2,h3{font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+  h2,h3{break-after:avoid;page-break-after:avoid}
+  h2 + .dek{break-after:avoid;page-break-after:avoid}
+
+  /* ── Portada ──────────────────────────────── */
+  .cover{
+    height:247mm; display:flex; flex-direction:column; page-break-after:always; position:relative;
+  }
+  .cover .eyebrow{font-size:9.5pt;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+  .cover .mark{margin-top:auto;font-size:13pt;font-weight:600;letter-spacing:-.01em}
+  .cover .mark .dot{color:var(--accent)}
+  .cover h1{
+    font-size:34pt;line-height:1.06;letter-spacing:-.025em;margin:.5em 0 0;max-width:18ch;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
+  }
+  .cover .tagline{font-size:13.5pt;color:var(--subtle);margin-top:1.2em;max-width:44ch;line-height:1.5;font-weight:400}
+  .cover .rule{height:3px;width:64px;background:var(--accent);margin:2.2em 0;border-radius:2px}
+  .cover .meta{display:grid;grid-template-columns:auto 1fr;gap:.35em 1.6em;font-size:10pt;color:var(--subtle);max-width:62ch}
+  .cover .meta dt{font-weight:600;color:var(--ink)}
+  .cover .meta dd{margin:0}
+  .cover .bottom{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;
+    border-top:1px solid var(--hair);padding-top:1.1em;font-size:9pt;color:var(--subtle)}
+
+  /* ── Abstract ─────────────────────────────── */
+  .abstract{
+    background:var(--accent-soft);border:1px solid #d9e8fb;border-radius:14px;
+    padding:1.4em 1.6em;margin:0 0 2em;page-break-inside:avoid;
+  }
+  .abstract h3{font-size:9pt;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 .5em}
+  .abstract p{margin:0;color:#2b2b32;max-width:none;font-size:10.5pt}
+
+  /* ── Secciones ────────────────────────────── */
+  section{page-break-inside:auto}
+  h2{
+    font-size:16.5pt;margin:1.6em 0 .2em;padding-top:.2em;letter-spacing:-.015em;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
+  }
+  h2 .n{color:var(--accent);font-variant-numeric:tabular-nums;margin-right:.5em;font-weight:600}
+  h2 + .dek{color:var(--subtle);font-size:10.5pt;margin:.1em 0 1.1em;max-width:60ch}
+  h3{font-size:11.5pt;margin:1.4em 0 .3em}
+  .lead{font-size:11.5pt;color:#2b2b32}
+
+  /* ── Listas ───────────────────────────────── */
+  ul.clean{list-style:none;padding:0;margin:.6em 0 1em}
+  ul.clean li{position:relative;padding-left:1.4em;margin:.5em 0;max-width:64ch;color:#33333a}
+  ul.clean li::before{content:"";position:absolute;left:.1em;top:.66em;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+  ul.clean li b{font-weight:600;color:var(--ink)}
+
+  /* ── Tablas ───────────────────────────────── */
+  table{width:100%;border-collapse:collapse;margin:1em 0 1.4em;font-size:10pt;page-break-inside:avoid}
+  caption{caption-side:top;text-align:left;font-size:9pt;color:var(--subtle);margin-bottom:.5em;font-weight:500}
+  th{text-align:left;font-weight:600;font-size:8.5pt;letter-spacing:.06em;text-transform:uppercase;color:var(--subtle);
+    border-bottom:1.5px solid var(--ink);padding:.5em .6em}
+  td{padding:.55em .6em;border-bottom:1px solid var(--hair);color:#33333a;vertical-align:top}
+  td.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+  tr.hi td{background:var(--accent-soft);font-weight:600;color:var(--ink)}
+  .win{color:#1a7f37;font-weight:600}
+
+  /* ── Pipeline / pasos ─────────────────────── */
+  .steps{counter-reset:s;margin:1em 0 1.2em}
+  .steps .s{display:grid;grid-template-columns:2em 1fr;gap:.9em;margin:.7em 0;page-break-inside:avoid}
+  .steps .s .ix{counter-increment:s;width:2em;height:2em;border-radius:50%;border:1.5px solid var(--accent);
+    color:var(--accent);font-weight:600;font-size:10pt;display:flex;align-items:center;justify-content:center}
+  .steps .s .ix::before{content:counter(s)}
+  .steps .s h3{margin:.2em 0 .1em;font-size:11pt}
+  .steps .s p{margin:0;font-size:10pt}
+
+  /* ── Callout ──────────────────────────────── */
+  .callout{border-left:3px solid var(--accent);padding:.2em 0 .2em 1.1em;margin:1.1em 0;color:#2b2b32;
+    font-size:11pt;page-break-inside:avoid}
+  .callout .k{display:block;font-size:8.5pt;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.3em;font-weight:600}
+
+  /* ── Referencias ──────────────────────────── */
+  ol.refs{font-size:9.5pt;color:#33333a;padding-left:1.4em;margin:.6em 0}
+  ol.refs li{margin:.45em 0;max-width:66ch}
+
+  .footer-note{font-size:8.5pt;color:var(--subtle);border-top:1px solid var(--hair);padding-top:.8em;margin-top:2.2em}
+  .pagebreak{page-break-before:always}
+</style>
+</head>
+<body>
+
+<!-- ════════ PORTADA ════════ -->
+<div class="cover">
+  <div class="eyebrow">Trabajo Práctico Integrador · Informe técnico</div>
+  <h1>Perfil de comunicación de entrenadores de fútbol mediante topic modeling</h1>
+  <p class="tagline">Un sistema que descubre, de forma automática y reproducible, de qué habla un director técnico en sus conferencias de prensa y cómo lo comunica.</p>
+  <div class="rule"></div>
+  <dl class="meta">
+    <dt>Materia</dt><dd>Procesamiento de Lenguaje Natural</dd>
+    <dt>Carrera</dt><dd>Ingeniería en Inteligencia Artificial</dd>
+    <dt>Institución</dt><dd>Universidad de Palermo</dd>
+    <dt>Tarea de NLP</dt><dd>Topic Modeling (modelo principal: BERTopic · baseline: LDA)</dd>
+    <dt>Integrantes</dt><dd>____________________ · ____________________ · ____________________</dd>
+    <dt>Fecha</dt><dd>Junio de 2026</dd>
+  </dl>
+  <div class="bottom">
+    <span class="mark">Voz<span class="dot">.</span></span>
+    <span>Software interno de análisis comunicacional</span>
+  </div>
+</div>
+
+<!-- ════════ CUERPO ════════ -->
+
+<div class="abstract">
+  <h3>Resumen</h3>
+  <p>Presentamos <strong>Voz</strong>, un sistema que analiza conferencias de prensa de entrenadores de fútbol y construye, de forma automática, un <strong>perfil de comunicación</strong> de cada director técnico. La tarea central de NLP es <strong>topic modeling</strong>: descubrir los temas latentes del discurso y medir su distribución. Sobre ese núcleo se construye el perfil —distribución de tópicos, evolución y un descriptor de sentimiento por tema—. El pipeline transcribe los videos con reconocimiento automático del habla, preprocesa con spaCy y modela los temas con BERTopic, usando LDA como baseline y la coherencia <em>c<sub>v</sub></em> como métrica de comparación. Sobre un corpus propio de cinco conferencias del fútbol argentino, el sistema separa con claridad el perfil de cada entrenador, validando el enfoque como una "huella comunicacional" objetiva y comparable.</p>
+</div>
+
+<section>
+  <h2><span class="n">1</span>Introducción</h2>
+  <div class="dek">Problema y motivación</div>
+  <p class="lead">En el fútbol profesional, lo que dice un entrenador en conferencia de prensa es materia prima para el análisis deportivo y comunicacional. Hoy ese análisis se hace de forma manual y subjetiva: alguien escucha, toma notas y opina. No es medible, no es comparable y no escala a varios entrenadores o rivales a la vez.</p>
+  <p>Nos propusimos responder, con NLP, una pregunta concreta y de valor para un club: <strong>¿de qué habla un director técnico y cómo es su perfil comunicacional?</strong> Reformulamos esa pregunta como un problema de topic modeling:</p>
+  <div class="callout">
+    <span class="k">Definición operativa</span>
+    El perfil de comunicación de un entrenador es la <strong>distribución de tópicos</strong> latentes en su discurso, su <strong>evolución</strong> a lo largo de las conferencias y un <strong>descriptor de sentimiento</strong> por tópico.
+  </div>
+  <p>El topic modeling es el núcleo metodológico evaluable; el "perfil de comunicación" es la capa de aplicación que se construye encima y que le da utilidad práctica al trabajo. En línea con la devolución del docente, la transcripción de los videos es un paso de <em>ingesta de datos</em> —no el aporte de NLP— y el sentimiento aparece únicamente como descriptor secundario, no como tarea central.</p>
+</section>
+
+<section>
+  <h2><span class="n">2</span>Trabajos relacionados</h2>
+  <div class="dek">Estado de la cuestión</div>
+  <ul class="clean">
+    <li><b>Topic modeling clásico.</b> LDA (Blei et al., 2003) modela cada documento como una mezcla de tópicos y cada tópico como una distribución de palabras. Es el baseline canónico de la disciplina.</li>
+    <li><b>Topic modeling neuronal.</b> BERTopic (Grootendorst, 2022) combina embeddings de oraciones (Sentence-BERT), reducción de dimensionalidad (UMAP), clustering (HDBSCAN o K-means) y una representación por c-TF-IDF. Suele producir tópicos más coherentes en texto corto y conversacional.</li>
+    <li><b>Evaluación de tópicos.</b> La coherencia <em>c<sub>v</sub></em> (Röder et al., 2015) correlaciona bien con el juicio humano sobre la interpretabilidad de los tópicos y permite comparar modelos de forma objetiva.</li>
+    <li><b>Análisis de sentimiento en español.</b> <em>pysentimiento</em> / RoBERTuito (Pérez et al., 2021), entrenado en español rioplatense, aporta el descriptor de tono del perfil.</li>
+  </ul>
+  <p>Todas estas técnicas forman parte del material de la cursada (Apunte 7 — Clustering y Topic Modeling).</p>
+</section>
+
+<section>
+  <h2><span class="n">3</span>Metodología</h2>
+  <div class="dek">Un pipeline de cuatro etapas</div>
+  <div class="steps">
+    <div class="s"><div class="ix"></div><div><h3>Ingesta y transcripción (ASR)</h3><p>A partir de links de YouTube, <em>yt-dlp</em> descarga el audio y <em>faster-whisper</em> lo transcribe en español. Es un paso de obtención de datos, no el aporte de NLP.</p></div></div>
+    <div class="s"><div class="ix"></div><div><h3>Preprocesamiento</h3><p>Con spaCy (<em>es_core_news_md</em>) segmentamos el texto en oraciones —la unidad de documento— y extraemos tokens de contenido lematizados (sustantivos, verbos, adjetivos y propios), descartando stopwords y muletillas de oralidad. Las preguntas del periodista se separan de las respuestas del DT.</p></div></div>
+    <div class="s"><div class="ix"></div><div><h3>Topic modeling (núcleo)</h3><p>Modelo principal: <strong>BERTopic</strong> con embeddings <em>paraphrase-multilingual-MiniLM-L12-v2</em>, UMAP, clustering y c-TF-IDF. Baseline: <strong>LDA</strong> (gensim), barriendo el número de tópicos <em>k</em>. Métrica de comparación y de selección de <em>k</em>: coherencia <em>c<sub>v</sub></em>.</p></div></div>
+    <div class="s"><div class="ix"></div><div><h3>Perfil de comunicación (aplicación)</h3><p>Cada oración se asigna a un tópico; se calcula la distribución de tópicos por DT, el sentimiento por tópico (pysentimiento) y la evolución conferencia a conferencia, resumidos en un radar de seis dimensiones.</p></div></div>
+  </div>
+  <p><strong>Entorno.</strong> Python 3.12. Backend en FastAPI; frontend en Next.js, que consume la API y muestra el perfil. El backend procesa cada video como un <em>job</em> en segundo plano durante la transcripción.</p>
+</section>
+
+<section>
+  <h2><span class="n">4</span>Experimentos y resultados</h2>
+  <div class="dek">Corpus propio del fútbol argentino</div>
+
+  <h3>4.1 Dataset</h3>
+  <p>Construimos un corpus propio transcribiendo conferencias de prensa de cinco entrenadores del fútbol argentino. Los transcripts quedan versionados en el repositorio.</p>
+  <table>
+    <caption>Tabla 1. Composición del corpus por entrenador.</caption>
+    <thead><tr><th>Entrenador</th><th>Conferencias</th><th>Oraciones</th><th>Tópicos</th><th>Coherencia c<sub>v</sub></th></tr></thead>
+    <tbody>
+      <tr><td>Marcelo Gallardo</td><td class="num">1</td><td class="num">17</td><td class="num">3</td><td class="num">0,701</td></tr>
+      <tr><td>Marcelo Bielsa</td><td class="num">1</td><td class="num">20</td><td class="num">3</td><td class="num">0,697</td></tr>
+      <tr><td>Ramón Díaz</td><td class="num">1</td><td class="num">28</td><td class="num">4</td><td class="num">0,668</td></tr>
+      <tr><td>Nicolás Diez</td><td class="num">1</td><td class="num">33</td><td class="num">4</td><td class="num">0,384</td></tr>
+      <tr><td>Claudio Úbeda</td><td class="num">1</td><td class="num">38</td><td class="num">4</td><td class="num">0,376</td></tr>
+      <tr class="hi"><td>Total</td><td class="num">5</td><td class="num">136</td><td class="num">—</td><td class="num">—</td></tr>
+    </tbody>
+  </table>
+
+  <h3>4.2 Comparación de modelos</h3>
+  <p>Sobre un corpus agrupado de 92 oraciones, comparamos el modelo principal (BERTopic) contra el baseline (LDA, con <em>k</em> seleccionado por coherencia). Reportamos la coherencia <em>c<sub>v</sub></em>, donde un valor más alto indica tópicos más interpretables.</p>
+  <table>
+    <caption>Tabla 2. Coherencia c<sub>v</sub> sobre el corpus agrupado (92 oraciones).</caption>
+    <thead><tr><th>Modelo</th><th>Tópicos</th><th>Coherencia c<sub>v</sub></th></tr></thead>
+    <tbody>
+      <tr><td>BERTopic (principal)</td><td class="num">5</td><td class="num">0,298</td></tr>
+      <tr><td>LDA — mejor k</td><td class="num">8</td><td class="num"><span class="win">0,474</span></td></tr>
+    </tbody>
+  </table>
+  <p>En el corpus agrupado, <strong>LDA alcanzó mayor coherencia que BERTopic</strong> (0,474 frente a 0,298). El resultado es esperable: con pocas oraciones de lenguaje oral, el clustering denso de BERTopic tiende a sub-segmentar. No obstante, <strong>a nivel de cada conferencia individual BERTopic produjo agrupamientos netamente más legibles</strong> (coherencia de hasta 0,70; Tabla 1), por lo que lo adoptamos como motor de la capa de aplicación y conservamos LDA como baseline cuantitativo de referencia. La decisión queda respaldada por la métrica, no por intuición.</p>
+
+  <h3>4.3 Tópicos detectados</h3>
+  <p>El modelo separa temas interpretables del discurso futbolero sin supervisión previa. A modo de ejemplo, en el discurso de Gallardo emergen <em>equipo / año / partido</em>, <em>plantel y posibilidades</em> y una referencia personal; en el de Úbeda, <em>resultados y dificultad</em>, <em>partidos</em> y <em>gol / claridad</em>.</p>
+
+  <h3>4.4 Perfil por entrenador</h3>
+  <p>La capa de aplicación traduce la distribución de tópicos y el sentimiento en un radar de seis dimensiones. Los perfiles difieren con claridad entre entrenadores, lo que valida el enfoque como huella comunicacional.</p>
+  <table>
+    <caption>Tabla 3. Dimensiones seleccionadas del perfil (escala 0–100).</caption>
+    <thead><tr><th>Entrenador</th><th>Confianza</th><th>Positividad</th><th>Cohesión / grupo</th><th>Lectura</th></tr></thead>
+    <tbody>
+      <tr><td>Gallardo</td><td class="num">56</td><td class="num">87</td><td class="num">71</td><td>Tono positivo, centrado en el plantel</td></tr>
+      <tr><td>Ramón Díaz</td><td class="num">55</td><td class="num">55</td><td class="num">51</td><td>Equilibrado, foco en el grupo</td></tr>
+      <tr><td>Bielsa</td><td class="num">52</td><td class="num">48</td><td class="num">16</td><td>Equilibrado, foco táctico</td></tr>
+      <tr><td>Nicolás Diez</td><td class="num">32</td><td class="num">57</td><td class="num">40</td><td>Cautela e incertidumbre</td></tr>
+      <tr><td>Claudio Úbeda</td><td class="num">27</td><td class="num">43</td><td class="num">23</td><td>Cautela, foco en resultados</td></tr>
+    </tbody>
+  </table>
+  <div class="callout">
+    <span class="k">Hallazgo</span>
+    El contraste entre un discurso de victoria (Gallardo: 87 % de positividad, 71 % de cohesión) y uno de incertidumbre (Úbeda: 27 % de confianza) es nítido y coherente con el contexto deportivo de cada conferencia. El mismo método los separa sin ajuste manual.
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">5</span>Discusión, análisis de errores y limitaciones</h2>
+  <ul class="clean">
+    <li><b>Tamaño del corpus.</b> Cinco conferencias (una por DT) son suficientes para demostrar el método, pero limitan la estabilidad de los tópicos y la coherencia global. Con más conferencias por entrenador, los temas se estabilizan y la evolución temporal del perfil se vuelve plenamente explotable.</li>
+    <li><b>Ruido de transcripción (ASR).</b> Whisper transcribe mal algunos nombres propios —por ejemplo, "River" aparece como "ríbe"—, lo que introduce términos espurios en los tópicos. Es mitigable con una etapa de normalización de entidades.</li>
+    <li><b>Coherencia moderada.</b> Es esperable en texto oral corto; la métrica <em>c<sub>v</sub></em> sirve sobre todo como medida <em>comparativa</em> entre configuraciones, no como valor absoluto.</li>
+    <li><b>Sentimiento agregado.</b> Es un descriptor del perfil, no un análisis fino frase a frase, y no constituye la tarea central del trabajo.</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="n">6</span>Conclusiones</h2>
+  <p>El topic modeling permite construir un perfil objetivo, automático y reproducible de cómo comunica cada entrenador a partir de conferencias transcriptas. El enfoque distingue con claridad a los distintos directores técnicos, confirmando la idea de una "huella comunicacional" medible. En la comparación cuantitativa, LDA obtuvo mayor coherencia <em>c<sub>v</sub></em> sobre el corpus agrupado, mientras que BERTopic resultó más legible a nivel de cada conferencia; ambos resultados se reportan de forma transparente y guiaron la decisión de diseño. La interfaz web hace el análisis accesible para un público no técnico —cuerpo técnico, prensa y dirigencia—, cumpliendo el objetivo de aplicación real.</p>
+  <p><strong>Trabajo futuro.</strong> Ampliar el corpus, normalizar nombres propios, validar la interpretación de los tópicos con etiquetado manual y agregar un comparador directo entre entrenadores.</p>
+</section>
+
+<section>
+  <h2><span class="n">7</span>Referencias</h2>
+  <ol class="refs">
+    <li>Blei, D., Ng, A. y Jordan, M. (2003). <em>Latent Dirichlet Allocation</em>. Journal of Machine Learning Research, 3, 993–1022.</li>
+    <li>Grootendorst, M. (2022). <em>BERTopic: Neural topic modeling with a class-based TF-IDF procedure</em>. arXiv:2203.05794.</li>
+    <li>Röder, M., Both, A. y Hinneburg, A. (2015). <em>Exploring the Space of Topic Coherence Measures</em>. WSDM.</li>
+    <li>Pérez, J., Giudici, J. C. y Luque, F. (2021). <em>pysentimiento: A Python Toolkit for Sentiment Analysis and Social NLP tasks</em>. arXiv:2106.09462.</li>
+    <li>Reimers, N. y Gurevych, I. (2019). <em>Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks</em>. EMNLP.</li>
+  </ol>
+  <p class="footer-note">Las figuras y tablas de este informe se generan de forma reproducible en <em>notebook/analisis_topic_modeling.ipynb</em>. Código y datos disponibles en el repositorio del proyecto.</p>
+</section>
+
+</body>
+</html>

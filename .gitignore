@@ -1,0 +1,26 @@
+# Python
+backend/venv/
+__pycache__/
+*.pyc
+.env
+
+# Datos pesados (audio/modelos) — los transcripts sí se versionan
+data/audio/
+data/models/
+*.wav
+*.mp3
+*.m4a
+
+# Node / Next
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.npm-cache/
+
+# OS / editores
+.DS_Store
+.vscode/
+.idea/
+
+# Cache de build de TypeScript
+frontend/tsconfig.tsbuildinfo

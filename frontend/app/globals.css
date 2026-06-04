@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 50% -10%, #f5f5f7 0%, #ffffff 55%),
+    #ffffff;
+  color: #1d1d1f;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Tarjeta de vidrio estilo Apple */
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Scrollbar discreta */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: #c7c7cc; border-radius: 999px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+.gradient-text {
+  background: linear-gradient(90deg, #0071e3 0%, #42a1ff 50%, #6e5cff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
