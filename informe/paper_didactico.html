@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Voz — Paper didáctico</title>
+<style>
+  @page{ size:A4; margin:22mm 20mm; }
+  :root{
+    --ink:#1d1d1f; --subtle:#6e6e73; --line:#d2d2d7; --hair:#e8e8ed;
+    --accent:#0071e3; --accent-soft:#f0f6ff; --good:#1a7f37; --warn:#b25e00;
+    --t0:#0071e3; --t1:#5e5ce6; --t2:#ff9f0a; --drop:#c7c7cc;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;
+    color:var(--ink);font-size:10.5pt;line-height:1.6;margin:0;-webkit-font-smoothing:antialiased}
+  p{margin:0 0 .8em;color:#33333a;max-width:66ch}
+  strong{font-weight:600;color:var(--ink)} em{font-style:italic}
+  code{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:9.2pt;background:#f4f4f7;
+    padding:.08em .35em;border-radius:5px;color:#2b2b32}
+  h1,h2,h3{font-weight:600;letter-spacing:-.012em;color:var(--ink);break-after:avoid;page-break-after:avoid}
+
+  .cover{height:55mm;display:flex;flex-direction:column;justify-content:flex-end;
+    border-bottom:1px solid var(--hair);padding-bottom:1.2em;margin-bottom:1.6em}
+  .eyebrow{font-size:9pt;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:25pt;line-height:1.08;letter-spacing:-.025em;margin:.35em 0 .2em;max-width:24ch;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif}
+  .cover .sub{font-size:11pt;color:var(--subtle);max-width:60ch}
+  .cover .byline{font-size:9pt;color:var(--subtle);margin-top:.9em}
+
+  h2{font-size:14pt;margin:1.7em 0 .15em;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif}
+  h2 .n{color:var(--accent);font-variant-numeric:tabular-nums;margin-right:.45em}
+  h2 + .dek{color:var(--subtle);font-size:10pt;margin:.1em 0 1em;max-width:60ch}
+  h3{font-size:11pt;margin:1.2em 0 .25em}
+
+  .lead{font-size:11.5pt;color:#2b2b32;max-width:62ch}
+
+  /* figura */
+  figure{margin:1.1em 0 1.3em;page-break-inside:avoid}
+  figure svg{display:block;width:100%;height:auto}
+  figcaption{font-size:8.8pt;color:var(--subtle);margin-top:.5em;max-width:64ch}
+  figcaption b{color:var(--ink);font-weight:600}
+  .figbox{border:1px solid var(--hair);border-radius:14px;padding:1.1em 1.2em;background:#fcfcfd}
+
+  /* ejemplo running box */
+  .ex{border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 12px 12px 0;
+    padding:.85em 1.1em;margin:1em 0;page-break-inside:avoid}
+  .ex .tag{font-size:8pt;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);font-weight:700;display:block;margin-bottom:.35em}
+  .ex p{margin:0;max-width:none;font-size:10.3pt}
+  .quote-sent{font-size:11.5pt;color:var(--ink);font-style:italic}
+
+  /* tabla token a token */
+  table{width:100%;border-collapse:collapse;margin:.6em 0;font-size:9.4pt}
+  th{text-align:left;font-size:8pt;letter-spacing:.05em;text-transform:uppercase;color:var(--subtle);
+    border-bottom:1.5px solid var(--ink);padding:.4em .5em}
+  td{padding:.34em .5em;border-bottom:1px solid var(--hair);vertical-align:middle}
+  td.mono{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:8.8pt}
+  .keep{color:var(--good);font-weight:600}
+  .dropx{color:#9a9aa3}
+  .chip{display:inline-block;padding:.18em .6em;border-radius:99px;font-size:9pt;font-weight:600;margin:.15em .25em .15em 0}
+  .chip.keep{background:#e6f4ea;color:var(--good)}
+  .chip.drop{background:#f1f1f4;color:#9a9aa3;text-decoration:line-through}
+
+  ul.clean{list-style:none;padding:0;margin:.5em 0 .9em}
+  ul.clean li{position:relative;padding-left:1.3em;margin:.4em 0;max-width:64ch;color:#33333a}
+  ul.clean li::before{content:"";position:absolute;left:.05em;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+
+  .callout{border:1px solid #d9e8fb;background:var(--accent-soft);border-radius:12px;padding:.9em 1.1em;margin:1em 0;page-break-inside:avoid}
+  .callout .k{display:block;font-size:8pt;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:.3em}
+  .callout p{margin:0;max-width:none}
+
+  .pagebreak{page-break-before:always}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:1.4em}
+  .footer-note{font-size:8.5pt;color:var(--subtle);border-top:1px solid var(--hair);padding-top:.8em;margin-top:2em}
+  .formula{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:9.5pt;background:#f4f4f7;border-radius:10px;
+    padding:.7em 1em;margin:.6em 0;color:#2b2b32;display:inline-block}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <span class="eyebrow">Nota técnica didáctica · Topic Modeling</span>
+  <h1>De la voz al tópico: anatomía del pipeline, paso a paso</h1>
+  <p class="sub">Seguimos una sola frase real desde el audio hasta el perfil del entrenador, mostrando qué le ocurre al dato en cada etapa y por qué.</p>
+  <p class="byline">Proyecto <strong>Voz</strong> · Procesamiento de Lenguaje Natural · Ingeniería en IA · Universidad de Palermo · Junio 2026</p>
+</div>
+
+<p class="lead">El objetivo de esta nota no es repetir la teoría, sino <strong>mostrarla en acción</strong>. Tomamos una frase real de una conferencia de Marcelo Gallardo y la hacemos atravesar todo el pipeline. En cada paso vemos el dato antes y después, y explicamos la intuición de la técnica. Así se entiende por qué el topic modeling puede "descubrir de qué habla" un entrenador sin que nadie se lo diga de antemano.</p>
+
+<!-- FIG 1 — PIPELINE -->
+<figure>
+  <svg viewBox="0 0 760 116" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Helvetica,Arial">
+    <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#9a9aa3"/></marker></defs>
+    <!-- boxes -->
+    <g>
+      <rect x="2"   y="34" width="118" height="48" rx="11" fill="#f0f6ff" stroke="#cfe3fb"/>
+      <rect x="162" y="34" width="118" height="48" rx="11" fill="#f0f6ff" stroke="#cfe3fb"/>
+      <rect x="322" y="34" width="118" height="48" rx="11" fill="#f0f6ff" stroke="#cfe3fb"/>
+      <rect x="482" y="34" width="118" height="48" rx="11" fill="#eef0ff" stroke="#d8d6fb"/>
+      <rect x="642" y="34" width="116" height="48" rx="11" fill="#e6f4ea" stroke="#bfe3cb"/>
+    </g>
+    <g font-size="11.5" font-weight="600" fill="#1d1d1f" text-anchor="middle">
+      <text x="61"  y="54">1 · Audio</text>
+      <text x="221" y="54">2 · Texto</text>
+      <text x="381" y="54">3 · Tokens</text>
+      <text x="541" y="54">4 · Tópicos</text>
+      <text x="700" y="54">5 · Perfil</text>
+    </g>
+    <g font-size="8.3" fill="#6e6e73" text-anchor="middle">
+      <text x="61"  y="70">conferencia</text>
+      <text x="221" y="70">transcripción</text>
+      <text x="381" y="70">lemas limpios</text>
+      <text x="541" y="70">BERTopic / LDA</text>
+      <text x="700" y="70">radar + sentim.</text>
+    </g>
+    <g stroke="#9a9aa3" stroke-width="1.4" marker-end="url(#ar)">
+      <line x1="122" y1="58" x2="158" y2="58"/>
+      <line x1="282" y1="58" x2="318" y2="58"/>
+      <line x1="442" y1="58" x2="478" y2="58"/>
+      <line x1="602" y1="58" x2="638" y2="58"/>
+    </g>
+    <text x="380" y="16" text-anchor="middle" font-size="8.5" fill="#9a9aa3" letter-spacing="1.5">INGESTA DE DATOS  ·  NÚCLEO DE NLP  ·  APLICACIÓN</text>
+  </svg>
+  <figcaption><b>Figura 1.</b> El pipeline completo. Los pasos 1–2 son ingesta de datos; el paso 3–4 es el aporte de NLP (topic modeling); el paso 5 es la capa de aplicación. La frase de ejemplo recorrerá estas cinco estaciones.</figcaption>
+</figure>
+
+<h2><span class="n">1</span>Del audio al texto</h2>
+<div class="dek">Reconocimiento automático del habla (ASR) — un paso de ingesta, no de NLP</div>
+<p>Una conferencia es audio. Para analizarla necesitamos texto. <code>yt-dlp</code> descarga el audio del video y <code>faster-whisper</code> —un modelo de reconocimiento del habla— lo transcribe en español. Es la misma familia de tecnología que usa el dictado del teléfono. No es nuestro aporte de NLP: es simplemente cómo conseguimos el dato.</p>
+<div class="ex">
+  <span class="tag">Nuestro ejemplo</span>
+  <p class="quote-sent">"Estoy muy contento con el equipo, los jugadores entendieron el partido y dieron todo en la cancha."</p>
+  <p style="margin-top:.4em;color:#52525c">Una frase como tantas que dice un DT tras un buen partido. A partir de acá, todo es texto.</p>
+</div>
+
+<h2><span class="n">2</span>De la frase a las palabras que importan</h2>
+<div class="dek">Segmentación en oraciones y preprocesamiento con spaCy</div>
+<p>Una frase tiene muchas palabras que <strong>no aportan tema</strong>: artículos, preposiciones, muletillas ("eh", "bueno", "digamos"). Si las dejáramos, los tópicos se llenarían de ruido. Por eso, con <code>spaCy</code> hacemos tres cosas a la vez:</p>
+<ul class="clean">
+  <li><strong>Segmentar</strong> el discurso en oraciones — cada oración es un "documento" para el modelo.</li>
+  <li><strong>Lematizar</strong> — llevar cada palabra a su forma base: <code>jugadores → jugador</code>, <code>entendieron → entender</code>. Así "juega", "jugaron" y "jugando" cuentan como lo mismo.</li>
+  <li><strong>Filtrar</strong> — quedarnos sólo con palabras de contenido (sustantivos, verbos, adjetivos y nombres propios) y descartar stopwords y muletillas.</li>
+</ul>
+
+<figure class="figbox">
+<table>
+  <thead><tr><th>Palabra original</th><th>Lema</th><th>Categoría (POS)</th><th>¿Se conserva?</th></tr></thead>
+  <tbody>
+    <tr><td class="mono">Estoy</td><td class="mono">estar</td><td>auxiliar</td><td class="dropx">— se descarta</td></tr>
+    <tr><td class="mono">muy</td><td class="mono">mucho</td><td>adverbio</td><td class="dropx">— se descarta</td></tr>
+    <tr><td class="mono">contento</td><td class="mono">contento</td><td>adjetivo</td><td class="keep">✓ se conserva</td></tr>
+    <tr><td class="mono">con / el / los</td><td class="mono">—</td><td>func. (prep/det)</td><td class="dropx">— se descarta</td></tr>
+    <tr><td class="mono">equipo</td><td class="mono">equipo</td><td>sustantivo</td><td class="keep">✓ se conserva</td></tr>
+    <tr><td class="mono">jugadores</td><td class="mono">jugador</td><td>sustantivo</td><td class="keep">✓ se conserva</td></tr>
+    <tr><td class="mono">entendieron</td><td class="mono">entender</td><td>verbo</td><td class="keep">✓ se conserva</td></tr>
+    <tr><td class="mono">partido</td><td class="mono">partido</td><td>sustantivo</td><td class="keep">✓ se conserva</td></tr>
+    <tr><td class="mono">dieron / todo / en</td><td class="mono">dar / …</td><td>verbo aux. / func.</td><td class="dropx">— se descarta</td></tr>
+    <tr><td class="mono">cancha</td><td class="mono">cancha</td><td>sustantivo</td><td class="keep">✓ se conserva</td></tr>
+  </tbody>
+</table>
+<figcaption><b>Figura 2.</b> Preprocesamiento real ejecutado con el código del proyecto (<code>preprocess.content_tokens</code>). De 17 palabras quedan 6 lemas de contenido. Esta es la "bolsa de palabras" que representa la frase.</figcaption>
+</figure>
+
+<div class="ex">
+  <span class="tag">Resultado del paso 2</span>
+  <p>
+    <span class="chip drop">Estoy</span><span class="chip drop">muy</span><span class="chip keep">contento</span><span class="chip drop">con&nbsp;el</span><span class="chip keep">equipo</span><span class="chip keep">jugador</span><span class="chip keep">entender</span><span class="chip keep">partido</span><span class="chip drop">dieron</span><span class="chip keep">cancha</span>
+  </p>
+  <p style="margin-top:.5em"><strong>La frase ahora es:</strong> <code>[contento, equipo, jugador, entender, partido, cancha]</code></p>
+</div>
+
+<h2 class="pagebreak"><span class="n">3</span>De las palabras a los temas (el corazón del trabajo)</h2>
+<div class="dek">Topic modeling con BERTopic: significado → geometría → grupos</div>
+<p>Acá ocurre la magia y es donde se ve el entendimiento del tema. La idea central de <strong>BERTopic</strong> es: si convertimos cada oración en un punto del espacio de forma que <em>oraciones con significado parecido queden cerca</em>, entonces <strong>los temas son simplemente las zonas densas de ese espacio</strong>. Tres sub-pasos:</p>
+
+<h3>3.1 — Embeddings: convertir significado en un vector</h3>
+<p>Un modelo de lenguaje (Sentence-BERT, <code>paraphrase-multilingual-MiniLM-L12-v2</code>) transforma cada oración en un vector de <strong>384 números</strong>. No son palabras: son coordenadas de significado. Dos frases que quieren decir lo mismo —aunque usen palabras distintas— caen en vectores cercanos. Eso es lo que LDA, que sólo cuenta palabras, no puede hacer.</p>
+<div class="ex">
+  <span class="tag">Nuestro ejemplo</span>
+  <p><code>[contento, equipo, jugador, entender, partido, cancha]</code> &nbsp;→&nbsp; <code>[ 0.12, −0.04, 0.31, … , 0.08 ]</code> &nbsp;<span style="color:#6e6e73">(384 dimensiones)</span></p>
+</div>
+
+<h3>3.2 — UMAP: bajar la dimensión para poder agrupar</h3>
+<p>384 dimensiones son demasiadas para encontrar grupos de forma fiable (el "maldito problema de la dimensionalidad"). <strong>UMAP</strong> reduce esos 384 números a unos pocos, conservando la estructura de vecindad: lo que estaba cerca, sigue cerca. Es como aplanar un mapa sin romper qué ciudades son vecinas.</p>
+
+<h3>3.3 — Clustering: las zonas densas son los tópicos</h3>
+<p>Sobre ese espacio reducido buscamos <strong>grupos de puntos</strong>. Con corpus grandes usamos <strong>HDBSCAN</strong>, que descubre solo cuántos grupos hay; con corpus chicos —como nuestras conferencias— fijamos el número con <strong>K-means</strong>, más estable. Cada grupo es un tópico.</p>
+
+<figure>
+  <svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Helvetica,Arial">
+    <!-- ejes -->
+    <line x1="40" y1="244" x2="520" y2="244" stroke="#d2d2d7"/>
+    <line x1="40" y1="244" x2="40" y2="24" stroke="#d2d2d7"/>
+    <text x="280" y="266" text-anchor="middle" font-size="8.5" fill="#9a9aa3">UMAP dimensión 1</text>
+    <text x="22" y="134" text-anchor="middle" font-size="8.5" fill="#9a9aa3" transform="rotate(-90 22 134)">UMAP dimensión 2</text>
+    <!-- cluster A (equipo/partido) azul -->
+    <g fill="#0071e3"><circle cx="120" cy="90" r="6"/><circle cx="140" cy="110" r="6"/><circle cx="105" cy="120" r="6"/><circle cx="150" cy="85" r="6"/><circle cx="128" cy="135" r="6"/><circle cx="95" cy="98" r="6"/></g>
+    <ellipse cx="123" cy="108" rx="58" ry="48" fill="none" stroke="#0071e3" stroke-dasharray="4 4" opacity=".55"/>
+    <!-- estrella = nuestra frase -->
+    <path d="M150 85 l3 7 7 1 -5 5 1 7 -6 -3 -6 3 1 -7 -5 -5 7 -1 z" fill="#0071e3" stroke="#fff" stroke-width="1"/>
+    <text x="123" y="44" text-anchor="middle" font-size="9.5" font-weight="700" fill="#0071e3">Tópico A · equipo · partido · año</text>
+    <!-- cluster B (jugador/plantel) violeta -->
+    <g fill="#5e5ce6"><circle cx="330" cy="170" r="6"/><circle cx="355" cy="185" r="6"/><circle cx="315" cy="195" r="6"/><circle cx="345" cy="205" r="6"/><circle cx="370" cy="168" r="6"/></g>
+    <ellipse cx="343" cy="186" rx="52" ry="42" fill="none" stroke="#5e5ce6" stroke-dasharray="4 4" opacity=".55"/>
+    <text x="343" y="128" text-anchor="middle" font-size="9.5" font-weight="700" fill="#5e5ce6">Tópico B · jugador · plantel · posibilidad</text>
+    <!-- cluster C (personal) naranja -->
+    <g fill="#ff9f0a"><circle cx="440" cy="80" r="6"/><circle cx="460" cy="100" r="6"/><circle cx="425" cy="105" r="6"/><circle cx="455" cy="70" r="6"/></g>
+    <ellipse cx="445" cy="89" rx="44" ry="38" fill="none" stroke="#ff9f0a" stroke-dasharray="4 4" opacity=".55"/>
+    <text x="448" y="36" text-anchor="middle" font-size="9.5" font-weight="700" fill="#b25e00">Tópico C · referencia personal</text>
+    <!-- leyenda estrella -->
+    <g transform="translate(560,60)">
+      <path d="M12 0 l3 7 7 1 -5 5 1 7 -6 -3 -6 3 1 -7 -5 -5 7 -1 z" fill="#0071e3" stroke="#fff"/>
+      <text x="28" y="9" font-size="9.5" font-weight="600" fill="#1d1d1f">= nuestra frase de ejemplo</text>
+      <text x="0" y="34" font-size="9" fill="#52525c">Cae en el Tópico A:</text>
+      <text x="0" y="50" font-size="9" fill="#52525c">habla del equipo y el partido.</text>
+      <circle cx="6" cy="78" r="6" fill="#0071e3"/><text x="20" y="82" font-size="9" fill="#52525c">cada punto = una oración</text>
+      <text x="0" y="108" font-size="9" fill="#52525c">Zonas densas = tópicos.</text>
+      <text x="0" y="124" font-size="9" fill="#52525c">Puntos sueltos = ruido</text>
+      <text x="0" y="140" font-size="9" fill="#52525c">(HDBSCAN los descarta).</text>
+    </g>
+  </svg>
+  <figcaption><b>Figura 3.</b> El espacio de significado de la conferencia de Gallardo tras embeddings + UMAP, con los tres tópicos reales que detectó el modelo. Nuestra frase de ejemplo (★) cae en el grupo del <i>equipo y el partido</i>. El modelo no recibió ninguna etiqueta: los temas emergen de la geometría.</figcaption>
+</figure>
+
+<h3>3.4 — c-TF-IDF: ponerle nombre a cada tópico</h3>
+<p>Ya tenemos grupos, pero ¿cómo sabemos de qué habla cada uno? BERTopic junta todas las oraciones de un grupo en un solo "documento gigante" y busca las palabras que son <strong>frecuentes en ese grupo pero raras en los demás</strong> (eso es c-TF-IDF). Esas palabras son la etiqueta del tópico.</p>
+<div class="callout">
+  <span class="k">Tópico A — en palabras del modelo</span>
+  <p><strong>equipo · año · partido</strong> &nbsp;←&nbsp; estas son las palabras que mejor distinguen al grupo donde cayó nuestra frase. Coincide con la intuición humana: la frase hablaba del equipo y del partido.</p>
+</div>
+
+<h2><span class="n">4</span>El baseline: LDA, otra forma de pensar los tópicos</h2>
+<div class="dek">Un modelo probabilístico clásico, para comparar contra algo sólido</div>
+<p>Para no quedarnos con un solo método, comparamos contra <strong>LDA</strong>, el modelo clásico. LDA parte de una idea distinta y elegante: imagina que cada conferencia se "escribió" mezclando temas en cierta proporción (70 % táctica, 20 % rival, 10 % grupo), y que cada tema es una ruleta de palabras. LDA hace ingeniería inversa: dado el texto, <strong>estima qué mezcla de temas y qué ruletas lo habrían generado</strong>. No usa significado, sólo co-ocurrencia de palabras — por eso es un buen contraste contra BERTopic.</p>
+<p>Como LDA necesita que le digamos cuántos temas <em>k</em> buscar, probamos varios valores y elegimos el mejor con una métrica objetiva: la coherencia.</p>
+
+<h2><span class="n">5</span>¿Qué modelo es mejor? La coherencia <span style="font-style:italic">c<sub>v</sub></span></h2>
+<div class="dek">Una nota numérica a la calidad de los tópicos</div>
+<p>Un buen tópico es uno cuyas palabras "pegan" entre sí: si un tema dice <code>gol, arco, jugada</code>, esas palabras deberían aparecer juntas en el texto real. La coherencia <strong><em>c<sub>v</sub></em></strong> mide justamente eso: toma las palabras top de cada tópico y verifica <strong>cuánto co-ocurren en el corpus comparado con lo que ocurriría por azar</strong>. Va de 0 (palabras inconexas) a 1 (palabras muy asociadas), y correlaciona bien con el juicio humano.</p>
+<div class="formula">c<sub>v</sub> ≈ &nbsp;qué tan seguido co-ocurren las palabras top del tópico &nbsp;÷&nbsp; lo esperable por azar</div>
+<p>Aplicada a nuestros modelos sobre el corpus agrupado:</p>
+<figure class="figbox">
+  <svg viewBox="0 0 620 150" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Helvetica,Arial">
+    <text x="0" y="20" font-size="9.5" font-weight="600" fill="#1d1d1f">BERTopic</text>
+    <rect x="120" y="8" width="460" height="20" rx="6" fill="#eef0f4"/>
+    <rect x="120" y="8" width="137" height="20" rx="6" fill="#0071e3"/>
+    <text x="266" y="23" font-size="9.5" font-weight="700" fill="#0071e3">0,298</text>
+
+    <text x="0" y="62" font-size="9.5" font-weight="600" fill="#1d1d1f">LDA (k=8)</text>
+    <rect x="120" y="50" width="460" height="20" rx="6" fill="#eef0f4"/>
+    <rect x="120" y="50" width="218" height="20" rx="6" fill="#1a7f37"/>
+    <text x="347" y="65" font-size="9.5" font-weight="700" fill="#1a7f37">0,474 — mejor</text>
+
+    <line x1="120" y1="90" x2="580" y2="90" stroke="#e8e8ed"/>
+    <text x="0" y="118" font-size="9.5" font-weight="600" fill="#1d1d1f">BERTopic</text>
+    <text x="60" y="118" font-size="7.5" fill="#9a9aa3">por DT</text>
+    <rect x="120" y="106" width="460" height="20" rx="6" fill="#eef0f4"/>
+    <rect x="120" y="106" width="322" height="20" rx="6" fill="#0071e3" opacity=".65"/>
+    <text x="451" y="121" font-size="9.5" font-weight="700" fill="#0071e3">hasta 0,70</text>
+    <text x="120" y="143" font-size="8" fill="#9a9aa3">0,0</text>
+    <text x="566" y="143" font-size="8" fill="#9a9aa3">1,0</text>
+  </svg>
+  <figcaption><b>Figura 4.</b> Coherencia <i>c<sub>v</sub></i>. Sobre el corpus agrupado, <b>LDA superó a BERTopic</b> (0,474 vs 0,298): con pocas oraciones, el clustering de BERTopic sub-segmenta. Pero <b>analizado por conferencia individual</b>, BERTopic alcanza hasta 0,70 y produce tópicos más legibles. Reportamos ambos resultados de forma transparente.</figcaption>
+</figure>
+<div class="callout">
+  <span class="k">La decisión, respaldada por datos</span>
+  <p>Usamos BERTopic como motor de la aplicación (tópicos legibles por conferencia) y conservamos LDA como baseline cuantitativo. No elegimos "a ojo": la métrica guió la decisión y reportamos incluso donde el baseline gana.</p>
+</div>
+
+<h2><span class="n">6</span>Del tópico al perfil comunicacional</h2>
+<div class="dek">La capa de aplicación: para qué sirve todo esto</div>
+<p>Con cada oración asignada a un tópico, contamos cuánto habla el DT de cada tema y con qué tono (sentimiento, vía <code>pysentimiento</code>). Eso se resume en un radar de seis dimensiones: la <strong>huella comunicacional</strong> del entrenador.</p>
+<figure>
+  <svg viewBox="0 0 620 200" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Helvetica,Arial">
+    <text x="0" y="14" font-size="9.5" font-weight="700" fill="#1d1d1f">Nuestra frase contribuye al perfil de Gallardo:</text>
+    <g font-size="9" fill="#52525c">
+      <text x="0" y="50">Positividad</text>
+      <text x="0" y="86">Cohesión / grupo</text>
+      <text x="0" y="122">Confianza</text>
+      <text x="0" y="158">Enfoque táctico</text>
+    </g>
+    <g>
+      <rect x="150" y="38" width="430" height="16" rx="5" fill="#eef0f4"/><rect x="150" y="38" width="374" height="16" rx="5" fill="#1a7f37"/><text x="534" y="51" font-size="9" font-weight="700" fill="#1a7f37">87</text>
+      <rect x="150" y="74" width="430" height="16" rx="5" fill="#eef0f4"/><rect x="150" y="74" width="305" height="16" rx="5" fill="#0071e3"/><text x="465" y="87" font-size="9" font-weight="700" fill="#0071e3">71</text>
+      <rect x="150" y="110" width="430" height="16" rx="5" fill="#eef0f4"/><rect x="150" y="110" width="241" height="16" rx="5" fill="#0071e3"/><text x="401" y="123" font-size="9" font-weight="700" fill="#0071e3">56</text>
+      <rect x="150" y="146" width="430" height="16" rx="5" fill="#eef0f4"/><rect x="150" y="146" width="120" height="16" rx="5" fill="#8e8e93"/><text x="280" y="159" font-size="9" font-weight="700" fill="#6e6e73">28</text>
+    </g>
+  </svg>
+  <figcaption><b>Figura 5.</b> El perfil de Gallardo (escala 0–100). Una frase positiva centrada en el equipo, como la del ejemplo, empuja hacia arriba "Positividad" y "Cohesión / grupo" — exactamente el perfil que el sistema detecta para él tras un triunfo.</figcaption>
+</figure>
+
+<div class="callout">
+  <span class="k">El recorrido completo, en una línea</span>
+  <p>Audio → <em>"Estoy muy contento con el equipo…"</em> → <code>[contento, equipo, jugador, partido, cancha]</code> → vector de 384 dim. → Tópico A (<strong>equipo·partido</strong>) → suma a Positividad y Cohesión del perfil de Gallardo. <strong>Eso es topic modeling de punta a punta.</strong></p>
+</div>
+
+<p class="footer-note">Todos los datos de esta nota provienen del proyecto: la frase y los tópicos son reales, el preprocesamiento se ejecutó con <code>backend/app/preprocess.py</code> y las métricas con <code>notebook/analisis_topic_modeling.ipynb</code>. Las figuras son esquemáticas pero fieles a la salida del modelo.</p>
+
+</body>
+</html>

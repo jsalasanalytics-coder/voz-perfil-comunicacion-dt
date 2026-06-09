@@ -18,6 +18,49 @@ from . import config, speakers
 _whisper_model = None  # carga perezosa (singleton)
 
 
+def load_transcripts() -> list[dict]:
+    """Carga el corpus completo de conferencias para el notebook académico.
+
+    Lee todas las conferencias de todos los entrenadores desde `data/coaches/`
+    (la fuente canónica que alimenta la app) y devuelve un registro por
+    conferencia con el nombre del DT resuelto. El campo `text` contiene SOLO
+    las respuestas del entrenador (segmentos DT), en línea con la metodología:
+    el topic modeling se hace sobre lo que dice el DT, no sobre las preguntas
+    del periodista. Se conservan `segments` y `speaker_summary` para análisis.
+    """
+    import json
+
+    from . import store
+
+    records: list[dict] = []
+    if not store.COACHES_DIR.exists():
+        return records
+    for coach_dir in sorted(store.COACHES_DIR.iterdir()):
+        coach_fp = coach_dir / "coach.json"
+        if not coach_fp.exists():
+            continue
+        coach = json.loads(coach_fp.read_text(encoding="utf-8"))
+        confs_dir = coach_dir / "conferences"
+        if not confs_dir.exists():
+            continue
+        for conf_fp in sorted(confs_dir.glob("*.json")):
+            conf = json.loads(conf_fp.read_text(encoding="utf-8"))
+            segments = conf.get("segments") or []
+            dt_text = speakers.coach_text(segments) if any(
+                "speaker" in s for s in segments
+            ) else conf.get("text", "")
+            records.append({
+                "coach": coach.get("name", coach_dir.name),
+                "title": conf.get("title"),
+                "url": conf.get("url"),
+                "text": dt_text,                       # solo respuestas del DT
+                "full_text": conf.get("text", ""),     # texto completo (referencia)
+                "segments": segments,
+                "speaker_summary": conf.get("speaker_summary", {}),
+            })
+    return records
+
+
 def _slug(text: str) -> str:
     text = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode()
     text = re.sub(r"[^\w\s-]", "", text).strip().lower()
